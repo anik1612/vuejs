@@ -1,0 +1,17 @@
+.btn-tomato {
+	background: #fe8100 !important;
+	color: white !important;
+	font-weight: bold !important;
+}
+
+.bg-tomato {
+	background: #fe8100 !important;
+}
+
+.tomato-color {
+	color: #fe8100 !important;
+}
+
+.border-tomato {
+	border: 1px solid #fe8100 !important;
+}

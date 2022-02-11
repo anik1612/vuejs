@@ -18,6 +18,7 @@ const App = {
 					portfolio: {
 						link: 'https://anik-sarker.com',
 					},
+					gender: 'Male',
 				},
 				{
 					id: 2,
@@ -35,6 +36,7 @@ const App = {
 					portfolio: {
 						link: 'https://anik-sarker.com',
 					},
+					gender: 'Male',
 				},
 				{
 					id: 3,
@@ -52,6 +54,7 @@ const App = {
 					portfolio: {
 						link: 'https://anik-sarker.com',
 					},
+					gender: 'Male',
 				},
 			],
 		};

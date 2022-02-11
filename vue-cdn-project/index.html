@@ -21,26 +21,26 @@
     <div id="app">
         <div class="container">
             <div class="row d-flex justify-content-center align-items-center vh-100">
-                <div class="col-lg-5 col-md-6 col-10">
+                <div class="col-lg-3 col-md-6 col-10" v-for="(item, index) in persons" :key="item.id">
                     <div class="card px-1 py-4 border border-dark">
                         <div class="text-center">
-                            <img :src="img.src" alt="dev-img" height="150" width="150"
+                            <img :src="item.img.src" alt="dev-img" height="150" width="150"
                                 class="border border-dark rounded-circle">
                         </div>
 
-                        <h4 class="text-center my-1">{{person.firstName}} {{person.lastName}}</h4>
+                        <h4 class="text-center my-1">{{item.person.firstName}} {{item.person.lastName}}</h4>
 
                         <h6 class="text-center my-1">
-                            {{education.universityName}}
+                            {{item.education.universityName}}
                         </h6>
                         <h6 class="text-center my-1">
-                            {{education.departmentName}}
+                            {{item.education.departmentName}}
                         </h6>
 
                         <div class="text-center">
-                            <button class="btn btn-dark my-1 col-6">
+                            <a :href="item.portfolio.link" target="_blank" class="btn btn-dark my-1 col-6">
                                 View Details
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

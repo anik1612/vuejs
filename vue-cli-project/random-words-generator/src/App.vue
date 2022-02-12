@@ -1,27 +1,31 @@
 <template>
-  <main>
-    <h1 class="text-center header-text">Word Limit is: {{ wordLimit }}</h1>
-    <input
-      type="range"
-      :value="wordLimit"
-      @change="handleSlideChange"
-      class="range-control"
-      min="1"
-      max="50"
-    />
-
-    <div class="btn-container">
-      <button class="btn generate-word-btn" @click="generateWords">
-        Generate Words
-      </button>
-      <button class="btn reset-btn" @click="resetWords">Reset</button>
-    </div>
-
-    <template v-if="words">
-      <div class="card">
-        {{ words }}
+  <main class="main-container">
+    <div>
+      <div class="text-center">
+        <h1 class="text-center header-text">Word Limit is: {{ wordLimit }}</h1>
       </div>
-    </template>
+      <input
+        type="range"
+        :value="wordLimit"
+        @change="handleSlideChange"
+        class="range-control"
+        min="1"
+        max="50"
+      />
+
+      <div class="btn-container">
+        <button class="btn generate-word-btn" @click="generateWords">
+          Generate Words
+        </button>
+        <button class="btn reset-btn" @click="resetWords">Reset</button>
+      </div>
+
+      <template v-if="words">
+        <div class="card">
+          {{ words }}
+        </div>
+      </template>
+    </div>
   </main>
 </template>
 
@@ -42,12 +46,16 @@ export default {
     },
 
     generateWords() {
-      this.words = wordLists
-        .slice(0, this.wordLimit)
-        .sort(() => Math.random() - 0.5)
-        .join(" ");
+      if (this.wordLimit <= 0) {
+        alert("Please choose how many words you want to generate");
+      } else {
+        this.words = wordLists
+          .slice(0, this.wordLimit)
+          .sort(() => Math.random() - 0.5)
+          .join(" ");
+      }
     },
-    
+
     resetWords() {
       this.words = null;
       this.wordLimit = 0;
@@ -61,6 +69,22 @@ body {
   background-color: #ececec;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.main-container {
+  margin: 10rem auto;
+  padding: 0.5rem;
+  border: 1px solid #5f4b90;
+  border-radius: 0.3rem;
+  width: 80%;
+}
+
+.header-text {
+  background-color: tomato;
+  color: white;
+  display: inline-block;
+  padding: 0.85rem;
+  border-radius: 0.3rem;
 }
 
 .text-center {
@@ -103,8 +127,20 @@ body {
   color: white;
   font-size: 1.2rem;
   padding: 1rem;
-  width: 80%;
+  width: 90%;
   margin: 1rem auto;
   border-radius: 0.3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    width: 50%;
+  }
 }
 </style>

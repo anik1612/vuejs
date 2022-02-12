@@ -4,6 +4,7 @@
       <div class="text-center">
         <h1 class="text-center header-text">Word Limit is: {{ wordLimit }}</h1>
       </div>
+
       <input
         type="range"
         :value="wordLimit"
@@ -20,11 +21,9 @@
         <button class="btn reset-btn" @click="resetWords">Reset</button>
       </div>
 
-      <template v-if="words">
-        <div class="card">
-          {{ words }}
-        </div>
-      </template>
+      <div v-if="words" class="card">
+        {{ words }}
+      </div>
     </div>
   </main>
 </template>
